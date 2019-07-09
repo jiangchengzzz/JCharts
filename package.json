@@ -1,0 +1,19 @@
+{
+  "scripts": {
+    "start": "umi dev"
+  },
+  "dependencies": {
+    "@types/jest": "^23.3.5",
+    "d3": "^5.9.7",
+    "dva": "^2.4.0",
+    "dva-model-creator": "^0.0.4",
+    "node-sass": "^4.12.0",
+    "react": "^16.4.2",
+    "react-dom": "^16.4.2",
+    "sass-loader": "^7.1.0"
+  },
+  "devDependencies": {
+    "umi": "^2.0.0-0",
+    "umi-plugin-react": "^1.0.0-0"
+  }
+}
