@@ -1,23 +1,32 @@
-
-.normal {
-    font-family: Georgia, sans-serif;
-    margin-top: 4em;
-    text-align: center;
-  }
-
-  .welcome {
-    height: 328px;
-    background: green;
-    background-size: 388px 328px;
-  }
-
-  .list {
-    font-size: 1.2em;
-    margin-top: 1.8em;
-    list-style: none;
-    line-height: 1.5em;
-  }
-
-  .list code {
-    background: #f7f7f7;
-  }
+.line {
+	height: 100%;
+	width: 100%;
+}
+.lineTop {
+  height: 60px;
+  background-color: #ffffff;
+  display: flex;
+	align-items: center;
+	border-bottom: 1px solid #E9E9E9;
+	padding-left: 20px;
+}
+.lineBottom {
+	display: flex;
+	height: 100%;
+}
+.lineSlider {
+	height: 100%;
+	width: 80px;
+	background-color: #F7F7F7;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	padding-top: 10px;
+}
+.lineContent {
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-color: #fff;
+}

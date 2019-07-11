@@ -1,4 +1,32 @@
-
-.barrr {
-  color: red;
+.bar {
+	height: 100%;
+	width: 100%;
+}
+.barTop {
+  height: 60px;
+  background-color: #ffffff;
+  display: flex;
+	align-items: center;
+	border-bottom: 1px solid #E9E9E9;
+	padding-left: 20px;
+}
+.barBottom {
+	display: flex;
+	height: 100%;
+}
+.barSlider {
+	height: 100%;
+	width: 80px;
+	background-color: #F7F7F7;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	padding-top: 10px;
+}
+.barContent {
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-color: #fff;
 }

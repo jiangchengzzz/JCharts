@@ -5,6 +5,7 @@
   "dependencies": {
     "@types/jest": "^23.3.5",
     "d3": "^5.9.7",
+    "d3-tip": "^0.9.1",
     "dva": "^2.4.0",
     "dva-model-creator": "^0.0.4",
     "node-sass": "^4.12.0",

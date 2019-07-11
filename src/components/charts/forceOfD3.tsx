@@ -1,5 +1,4 @@
 import React from 'react';
-import style from'./index.scss';
 import * as d3 from 'd3'
 
 interface IProps {
@@ -14,7 +13,6 @@ class ForceOfD3 extends React.Component<IProps, IState> {
     this.state = {
     }
   }
-
   componentDidMount() {
     const containerWidth = chartRef.parentElement.offsetWidth
     const data = this.props.data
