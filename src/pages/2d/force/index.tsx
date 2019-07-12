@@ -53,8 +53,6 @@ class ForceBase extends React.Component<IProps, IState> {
               { source: 3, target: 9, relation: '师生', value: 5 },
               { source: 2, target: 10, relation: '母子', value: 1 },
               { source: 10, target: 11, relation: '雇佣', value: 6 },
-              { source: 10, target: 12, relation: '雇佣', value: 6 },
-              { source: 11, target: 12, relation: '同事', value: 7 }
             ]
       }
     }

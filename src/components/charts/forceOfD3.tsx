@@ -40,11 +40,11 @@ class ForceOfD3 extends React.Component<IProps, IState> {
             return i
           })
           .distance(function(d) {
-            return d.value * 50
+            return 1
           })
       )
       .force('collision', d3.forceCollide(1).strength(0.1)) //
-      .force('charge', d3.forceManyBody())
+      // .force('charge', d3.forceManyBody().strength(-1000))
       .force('center', d3.forceCenter(width / 2, height / 2))
 
     // 创建一个颜色的比例尺
@@ -82,46 +82,46 @@ class ForceOfD3 extends React.Component<IProps, IState> {
       .data(data.nodes)
       .enter()
       .append('g')
-      // .on('mouseover', function(d, i) {
-      //   //显示连接线上的文字
-      //   linkText.style('fill-opacity', function(edge) {
-      //     if (edge.source === d || edge.target === d) {
-      //       return 1
-      //     }
-      //   })
-      //   //连接线加粗
-      //   link
-      //     .style('stroke-width', function(edge) {
-      //       if (edge.source === d || edge.target === d) {
-      //         return '2px'
-      //       }
-      //     })
-      //     .style('stroke', function(edge) {
-      //       if (edge.source === d || edge.target === d) {
-      //         return '#000'
-      //       }
-      //     })
-      // })
-      // .on('mouseout', function(d, i) {
-      //   //隐去连接线上的文字
-      //   linkText.style('fill-opacity', function(edge) {
-      //     if (edge.source === d || edge.target === d) {
-      //       return 0
-      //     }
-      //   })
-      //   //连接线减粗
-      //   link
-      //     .style('stroke-width', function(edge) {
-      //       if (edge.source === d || edge.target === d) {
-      //         return '1px'
-      //       }
-      //     })
-      //     .style('stroke', function(edge) {
-      //       if (edge.source === d || edge.target === d) {
-      //         return '#ddd'
-      //       }
-      //     })
-      // })
+      .on('mouseover', function(d, i) {
+        //显示连接线上的文字
+        linkText.style('fill-opacity', function(edge) {
+          if (edge.source === d || edge.target === d) {
+            return 1
+          }
+        })
+        //连接线加粗
+        link
+          .style('stroke-width', function(edge) {
+            if (edge.source === d || edge.target === d) {
+              return '2px'
+            }
+          })
+          .style('stroke', function(edge) {
+            if (edge.source === d || edge.target === d) {
+              return '#000'
+            }
+          })
+      })
+      .on('mouseout', function(d, i) {
+        //隐去连接线上的文字
+        linkText.style('fill-opacity', function(edge) {
+          if (edge.source === d || edge.target === d) {
+            return 0
+          }
+        })
+        //连接线减粗
+        link
+          .style('stroke-width', function(edge) {
+            if (edge.source === d || edge.target === d) {
+              return '1px'
+            }
+          })
+          .style('stroke', function(edge) {
+            if (edge.source === d || edge.target === d) {
+              return '#ddd'
+            }
+          })
+      })
       .call(
         d3
           .drag()
@@ -195,6 +195,15 @@ class ForceOfD3 extends React.Component<IProps, IState> {
       node.attr('transform', function(d) {
         return 'translate(' + d.x + ',' + d.y + ')'
       })
+    }
+
+    // 添加缩放
+    chart.call(d3.zoom()
+      .scaleExtent([1 / 2, 8])
+      .on("zoom", zoomed));
+
+    function zoomed() {
+      g.attr("transform", d3.event.transform);
     }
 
     function dragstarted(d) {
