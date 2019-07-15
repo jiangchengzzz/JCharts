@@ -52,17 +52,46 @@ class ForceOfD3 extends React.Component<IProps, IState> {
       .domain(d3.range(data.nodes.length))
       .range(d3.schemeCategory10);
 
+    var maker = g
+      .append('marker')
+      .attr('id', 'marker')
+      // .attr("id", function(d) { return `marker${d}`; })
+      .attr("markerUnits","strokeWidth")//设置为strokeWidth箭头会随着线的粗细发生变化
+      .attr("markerUnits","userSpaceOnUse")
+      .attr("viewBox", "0 -5 10 10")//坐标系的区域
+      .attr("refX",26)//箭头坐标
+      .attr("refY", 0)
+      .attr("markerWidth", 12)//标识的大小
+      .attr("markerHeight", 12)
+      .attr("orient", "auto")//绘制方向，可设定为：auto（自动确认方向）和 角度值
+      .attr("stroke-width",2)//箭头宽度
+      .append("path")
+      .attr("d", "M0,-5L10,0L0,5")//箭头的路径
+      .attr('fill','#000000');//箭头颜色
+
     let link = g
       .append('g') // 画连接线
       .attr('class', 'links')
+
       .selectAll('line')
       .data(data.edges)
       .enter()
+
       .append('line')
+      .attr(
+        // 'd': function(d) {return 'M '+d.source.x+' '+d.source.y+' L '+ d.target.x +' '+d.target.y},
+        // 'class':'edgepath',
+        //'fill-opacity':0,
+        //'stroke-opacity':0,
+        //'fill':'blue',
+        //'stroke':'red',
+        'id', function(d,i) {return 'link-'+i;})
       .attr("stroke",function(d,i){
           return colorScale(i);
       })
-      .attr("stroke-width",1);
+      .attr("stroke-width",1)
+      .attr("marker-end", "url(#marker)")//根据箭头标记的id号标记箭头
+
 
     let linkText = g
       .append('g') // 画连接连上面的关系文字
@@ -71,9 +100,20 @@ class ForceOfD3 extends React.Component<IProps, IState> {
       .data(data.edges)
       .enter()
       .append('text')
+
+      // .append('svg:textPath')
       .text(function(d) {
         return d.relation
       })
+      // .attr("xlink:href", function(d) {
+      //   // if (d.source.index == d.target.index) {
+      //   //     return false; //不应该有指向自己的关系 异常处理
+      //   //   } else {
+      //   //       return "#link-" + d.index
+      //   //   }
+      //   console.log('d', d)
+      //   return "#link-" + d.index
+      // })
 
     let node = g
       .append('g') // 画圆圈和文字`
