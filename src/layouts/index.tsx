@@ -25,6 +25,7 @@ const sliderData: any = {
     { id: '2d-3', route: '/2d/line', name: '折线图'},
     { id: '2d-4', route: '/2d/pie', name: '饼图'},
     { id: '2d-5', route: '/2d/force', name: '力导向图'},
+    { id: '2d-6', route: '/2d/search', name: '图搜索'},
     // { id: '2d-6', route: '/2d/radar', name: '雷达图', children: [
     //   {id: '2d-6-1', route: '/2d/radar/data', name: '雷达图数据'},
     //   {id: '2d-6-2', route: '/2d/radar/layout', name: '雷达图布局'},
@@ -56,7 +57,7 @@ class BasicLayout extends React.Component<IProps, IState> {
   /**
    * @description: 判断和选择侧边栏跳转路由
    */
-  selectRouter(types: string) : string {
+  selectRouter(types) : string {
     const route: Array<string> = this.state.pathname.split('/');
     let res: string = '';
     if (types === 'top') {

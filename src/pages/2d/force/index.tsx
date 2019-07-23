@@ -66,7 +66,8 @@ class ForceBase extends React.Component<IProps, IState> {
 
 
   render() {
-    const {forceData} = this.state
+    const {forceData} = this.state;
+    console.log('object', forceData)
     return (
       <div className={style.force}>
         <div className={style.forceTop}>

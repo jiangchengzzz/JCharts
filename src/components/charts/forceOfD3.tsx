@@ -16,18 +16,19 @@ class ForceOfD3 extends React.Component<IProps, IState> {
   }
 
   componentDidMount() {
-    const containerWidth = chartRef.parentElement.offsetWidth
-    const data = this.props.data
-    const margin = { top: 60, right: 60, bottom: 60, left: 60 }
-    const width = containerWidth - margin.left - margin.right
-    const height = 700 - margin.top - margin.bottom
+    const containerWidth = chartRef.parentElement.offsetWidth;
+    const data = this.props.data;
+    console.log('data :', data);
+    const margin = { top: 60, right: 60, bottom: 60, left: 60 };
+    const width = containerWidth - margin.left - margin.right;
+    const height = 700 - margin.top - margin.bottom;
     const chart = d3
       .select(chartRef)
       .attr('width', width + margin.left + margin.right)
-      .attr('height', height + margin.top + margin.bottom)
+      .attr('height', height + margin.top + margin.bottom);
     const g = chart
       .append('g')
-      .attr('transform', 'translate(' + margin.left + ',' + margin.top + ')') // 设最外包层在总图上的相对位置
+      .attr('transform', 'translate(' + margin.left + ',' + margin.top + ')');// 设最外包层在总图上的相对位置
 
     // 新建力导向图，以及一些配置
     const simulation = d3
@@ -92,6 +93,7 @@ class ForceOfD3 extends React.Component<IProps, IState> {
       .attr("stroke-width",1)
       .attr("marker-end", "url(#marker)")//根据箭头标记的id号标记箭头
 
+      console.log('datalink :', data);
 
     let linkText = g
       .append('g') // 画连接连上面的关系文字
@@ -188,6 +190,7 @@ class ForceOfD3 extends React.Component<IProps, IState> {
         return d.name
       })
 
+      console.log("data.nodes", data.nodes)
     simulation // 初始化力导向图
       .nodes(data.nodes)
       .on('tick', ticked)

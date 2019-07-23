@@ -1,0 +1,38 @@
+.search {
+	height: 100%;
+	width: 100%;
+	.searchTop {
+		padding: 30px 0;
+		.logo {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			padding: 10px;
+		}
+		.searchBox {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			.searchIpt  {
+				height: 50px;
+				width: 600px;
+				input {
+					border-radius: 20px;
+					padding-right: 40px;
+					padding-left: 20px;
+				}
+				span {
+					font-size: 22px;
+				}
+			}
+		}
+	}
+	.searchContent {
+		width: 100%;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		background-color: #fff;
+	}
+
+}
